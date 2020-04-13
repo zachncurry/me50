@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="utf-8">
+    <title>Book Selector</title>
+  </head>
+  <body>
+    {% if session.user_id %}
+<div id="header_div">
+
+      <h1 id="menu_header"></h1>
+      <button id="menu_button" style="float: right;" onclick="window.location.href ='/logout';">Logout</button>
+      <button id="menu_button" style="float: right;" onclick="window.location.href ='/search';">Search</button>
+
+      </div>
+
+{% else %}
+<div id="header_div">
+
+    <h1 id="menu_header"></h1>
+    <button id="menu_button" style="float: right;" onclick="window.location.href ='/';">Login</button>
+    <button id="menu_button" style="float: right;" onclick="window.location.href ='/register';">Register</button>
+    <button id="menu_button" style="float: right;" onclick="window.location.href ='/search';">Search</button>
+
+    </div>
+
+{% endif %}
+
+
+    {%block heading%}{%endblock%}
+
+    {%block body%}{%endblock%}
+
+<br><br><br>
+<center style="bottom:0px;">Book Selector Created By Zach Curry</center>
+<center style="bottom:0px;">CS50 Computer Science Web Programming Certification</center>
+<a class= "results_link" style="float:right;" href="/apidoc">API Docs</a>
+
+    </body>
+    </html>

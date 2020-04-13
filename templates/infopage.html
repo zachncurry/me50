@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{%block heading%}
+
+<h1></h1>
+
+{%endblock%}
+
+
+
+
+{%block body%}
+{{warning}}
+<br><br><br><br>
+<container>
+<div id="info_div">
+<center>
+<h1>{{book.title}}</h1>
+<br><br>
+</center>
+<table style="margin-left:25px;width:40%; float:left">
+<tr>
+  <th>Author:</th>
+  <th>{{book.author}}<th>
+</tr>
+<tr>
+  <th>ISBN:</th>
+  <th>{{book.isbn}}</th>
+</tr>
+<tr>
+  <th>Year:</th>
+  <th>{{book.year}}</th>
+<tr>
+
+<table style="margin-left:20px;width:40%; float:right">
+<tr>
+  <th>Number of Ratings:</th>
+  <th>{{GoodRd_work_ratings_count}}</th>
+</tr>
+<tr>
+  <th>Rating:</th>
+  <th>{{GoodRd_average_rating}}</th>
+<tr>
+</table>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h5 style="margin-left:25px;">Write A Review</h1>
+<form action="{{url_for('post_comment')}}" method="post" style="margin-left:25px;">
+ <div class="form-group">
+     <input style="height:75px;width:600px;" autocomplete="off" autofocus class="form-control" name="book_comment" placeholder="Write a review..." type="text">
+ </div>
+ <!--REFERENCE: Star Rating System: https://codepen.io/jamesbarnett/pen/vlpkh-->
+ <fieldset class="rating">
+    <input type="hidden" value="{{ book.book_id }}" name="book_id">
+    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+</fieldset>
+
+<button id="review_button" style="margin-left:275px;" type="submit">Submit Review</button>
+</form>
+<h6 style="margin-left:25px;">Only One Review Per User</h6>
+<table class="table is-striped is-fullwidth" style="width: 50%;">
+{% for comment in comments %}
+<tr>
+    <th>Rating: {{comment.rating}}</th>
+    <th>{{comment.comment}}</th>
+</tr>
+{% endfor %}
+</table>
+
+</div>
+
+
+
+<container>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{%block heading%}
+<h1></h1>
+<!--REFERENCE: Clickable table links: https://stackoverflow.com/questions/17147821/how-to-make-a-whole-row-in-a-table-clickable-as-a-link-->
+{%endblock%}
+
+{%block body%}
+<br><br><br>
+{% if results %}
+<div id="info_div">
+<center>
+<table class="table is-striped is-fullwidth">
+  <thead>
+  <tr>
+   <th>ISBN</th>
+   <th>Title</th>
+   <th>Author</th>
+   <th>Year</th>
+ </tr>
+</thead>
+{% for result in results %}
+  <tr>
+  <td><a class= "results_link" href="{{url_for('infopage',book_id=result.book_id)}}">{{result.isbn}}</a></td>
+  <td><a class= "results_link" href="{{url_for('infopage',book_id=result.book_id)}}">{{result.title}}</a></td>
+  <td><a class= "results_link" href="{{url_for('infopage',book_id=result.book_id)}}">{{result.author}}</a></td>
+  <td><a class= "results_link" href="{{url_for('infopage',book_id=result.book_id)}}">{{result.year}}</a></td>
+  </tr>
+  {% endfor %}
+  </table>
+  {% else %}
+  <h1>No results.</h1>
+  {% endif %}
+</center>
+</div>
+
+
+
+{% endblock %}

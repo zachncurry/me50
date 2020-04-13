@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{%block heading%}
+
+<h1></h1>
+
+{%endblock%}
+
+
+{%block body%}
+<br><br><br><br>
+<h1>External API's Used</h1>
+<div id="info_div" style="word-wrap: break-word;">
+<h3>GoodReads.com<h3>
+<a class= "results_link" href="www.goodreads.com">Learn More</a>
+<br>
+</div>
+<h1>API Documentation: For Developers</h1>
+<div id="info_div" style="word-wrap: break-word;">
+<p>If users make a GET request to the URL /api/isbn route, where isbn is an ISBN number,
+  the website should return a JSON response containing the book's title, author, publication date, ISBN number,
+  review count, and average score. The resulting JSON should follow the format:</p><br><br>
+<p> {</p>
+<p>   "title": "Memory",</p>
+<p>   "author": "Doug Lloyd",</p>
+<p>   "year": 2015,</p>
+<p>   "isbn": "1632168146",</p>
+<p>   "review_count": 28,</p>
+<p>   "average_score": 5.0</p>
+<p> }</p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{%block heading%}
+
+{%endblock%}
+
+{%block body%}
+<br>
+<br>
+<br>
+<br>
+<br>
+{% if session.user_id %}
+<br>
+<center><h3>Search</h3>
+<form action="/results" method="post">
+ <div class="form-group">
+     <input style="width:300px;" autocomplete="off" autofocus class="form-control" name="book_search" placeholder="Search ISBN, Book Title, or Author" type="text">
+ </div>
+ <button id="login_button" type="submit">Search</button>
+</form>
+</center>
+{% else %}
+<center>
+  <div id="info_div">
+<H3>Please Log in Before Searching</H3>
+<h5>Membership Benefits</h5><br>
+  <p>✓ Search Books</p>
+  <p>✓ Search Authors</p>
+  <p>✓ Read Book Reviews</p>
+  <p>✓ Write Book Reviews</p>
+<div>
+  </center>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+{% endblock %}
