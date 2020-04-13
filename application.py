@@ -43,7 +43,7 @@ Session(app)
 
 # Set up database
 engine = create_engine(os.getenv("DATABASE_URL"))
-#engine="postgres://xcpjplgohgmiab:1f7d202941ab720dedf70f3234f4ee5f2c14122efe0bfae0f25d39c7aded956b@ec2-34-200-116-132.compute-1.amazonaws.com:5432/d7gp28ah8vfks0"
+#engine="postgres://xcpj--" #EDITED FOR SUBMISSION
 db = scoped_session(sessionmaker(bind=engine))
 
 
